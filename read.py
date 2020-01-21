@@ -11,11 +11,13 @@ from PIL import Image
 from pyzbar import pyzbar
 from pyzbar.pyzbar import decode
 import requests
-import slack
+#import slack
 from bs4 import BeautifulSoup
 import unicodedata
+import csv
+import pprint
 
-SLACK_BOT_TOKEN = key.SLACK_BOT_TOKEN
+#SLACK_BOT_TOKEN = key.SLACK_BOT_TOKEN
 
 
 def SearchImage():
@@ -51,11 +53,11 @@ def SPOST(RN):
     response = client.chat_postMessage(channel=slackch, text=RN)
 
 
-def post(card):
-    slackch = key.slackch
+#def post(card):
+    #slackch = key.slackch
 
-    client = slack.WebClient(token=SLACK_BOT_TOKEN)
-    response = client.chat_postMessage(channel=slackch, text=card)
+    #client = slack.WebClient(token=SLACK_BOT_TOKEN)
+    #response = client.chat_postMessage(channel=slackch, text=card)
 
 
 def get_path():
@@ -105,7 +107,7 @@ def get_path():
 
 def main():
     print(
-        """アイカツQRコード読み取り/Slack送信システム
+        """Aikatsu-QR-Reader Ver.WithOut-Slack-Post
 該当の画像があるパスを入れてください
 QRを読み取る場合はQRと入れてください
 終了する場合はexitまたはCtrl+Dでお願いします"""
@@ -267,11 +269,15 @@ QRを読み取る場合はQRと入れてください
         
         card = RN + "\n" + card
         
+        with open('result.csv', 'a') as f:
+            writer = csv.writer(f)
+            writer.writerow(card)
+        
         #SPOST(RN)
     
-        post(card)
+        #post(card)
 
-        card = image = path = RN = RR = NR = None
+        card = image = path = RN = RR = NR = f = None
 
         print("該当の画像を入れてください")
         print("終了する場合はexitまたはCtrl+Dでお願いします")
