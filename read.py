@@ -19,23 +19,6 @@ import pprint
 
 #SLACK_BOT_TOKEN = key.SLACK_BOT_TOKEN
 
-
-def SearchImage():
-    homeDir = expanduser('~')
-    imageDir = homeDir + '\\Pictures\\Camera Roll'
-    imageList = os.listdir(imageDir)
-    return (imageDir + '\\' + imageList[-1])
-
-
-def QRreade(image):
-    readResult = decode(Image.open(image))
-    if (readResult != []):
-        return readResult
-    else:
-        print('QRコードを検出できませんでした')
-        exit()
-
-
 def get_shortenURL(longUrl):
     url = 'https://api-ssl.bitly.com/v3/shorten'
     access_token = key.access_token
@@ -142,7 +125,14 @@ QRを読み取る場合はQRと入れてください
                         sys.exit()
                     elif "http://dcd.sc/n2" in path:
                         target_url = path
-                        r = requests.get(target_url) 
+                        try:
+                            r = requests.get(target_url)
+                        except UnicodeError:
+                            print("UnicodeError!")
+                            sys.exit(1)
+                        except requests.exceptions.ConnectionError:
+                            print("不正なURLを読み込んだ？")
+                            sys.exit(1)
                         soup = BeautifulSoup(r.text, 'lxml')
                         try:
                             NR = soup.find("dd", class_="cardNum").get_text()
@@ -219,7 +209,12 @@ QRを読み取る場合はQRと入れてください
             
             if "http://dcd.sc/n2" in path:
                 target_url = path
-                r = requests.get(target_url) 
+                try:
+                    r = requests.get(target_url)
+                except UnicodeError:
+                    sys.exit(1) 
+                except requests.exceptions.ConnectionError:
+                    sys.exit(1)
                 soup = BeautifulSoup(r.text, 'lxml')
                 try:
                     NR = soup.find("dd", class_="cardNum").get_text()
