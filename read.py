@@ -170,7 +170,7 @@ QRを読み取る場合はQRと入れてください
 
         cv2.destroyAllWindows()
 
-        if "http://aikatsu.com/qr/id=" in path or "AK" in path:
+        if "http://aikatsu.com/qr/id=" in path or "AK" in path and not "http://dcd.sc/" in path:
             print(
                 """旧カツのカードは対応していません。
 該当の画像を入れてください
