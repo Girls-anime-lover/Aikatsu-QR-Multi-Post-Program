@@ -263,10 +263,11 @@ QRを読み取る場合はQRと入れてください
             continue
         
         card = RN + "\n" + card
-        
-        with open('result.csv', 'a') as f:
-            writer = csv.writer(f)
-            writer.writerow(card)
+            
+        with open("result.txt", mode='a') as f:
+            f.write(card)
+
+        f.close()
         
         #SPOST(RN)
     
