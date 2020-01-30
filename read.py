@@ -11,7 +11,6 @@ from PIL import Image
 from pyzbar import pyzbar
 from pyzbar.pyzbar import decode
 import requests
-#import slack
 from bs4 import BeautifulSoup
 import unicodedata
 import csv
