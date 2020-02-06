@@ -221,8 +221,7 @@ QRを読み取る場合はQRと入れてください
                     print("カード名取得失敗です。学生証を読み込んだ事またはリダイレクトの設定間違えだと思われます。")
                     RN = "カード名取得失敗です。学生証を読み込んだ事またはリダイレクトの設定間違えだと思われます。"
                     pass
-                else:
-                    pass
+                RN = re.sub('[\r\n]+$', '', RN)
             elif "http://dcd.sc/n3" in path or "http://dcd.sc/n1" in path:
                 NR = "学生証です。"
                 print(NR)
