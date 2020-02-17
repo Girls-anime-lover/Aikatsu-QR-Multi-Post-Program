@@ -1,5 +1,5 @@
-# Aikatsu-QR-Slack-Post-Program
-アイカツのQRコードを読み取りSlackに送信します。
+# Aikatsu-QR-Multi-Post-Program
+アイカツのQRコードを読み取り、結果を[discordに投稿/slackに投稿/Txtファイルに書き出し]します。
 
 ## 動作の手順
 適当にカードをスキャンした画像を用意するかその場に用意する
