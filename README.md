@@ -1,5 +1,5 @@
-# Aikatsu-QR-Slack-Post-Program
-アイカツのQRコードを読み取りSlackに送信します。
+# Aikatsu-QR-Multi-Post-Program
+アイカツのQRコードを読み取り、結果を[discordに投稿/slackに投稿/Txtファイルに書き出し]します。
 
 ## 動作させる前に
 1.python3.8のみ動作確認をしています。python3.7で動くかもしれませんが。
