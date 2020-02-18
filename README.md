@@ -5,8 +5,11 @@
 適当にカードをスキャンした画像を用意するかその場に用意する
 
 ## 動作の前に
-BitryのAPIをご用意ください。[これとか](https://qiita.com/maruyam-a/items/96c8ad733c770a44117e)を参考に取得を。取得したAPIをkey.py.txtに書き込みkey.py.txtをkey.pyにリネームしてください。
+BitryのAPIをご用意ください。[これとか](https://qiita.com/maruyam-a/items/96c8ad733c770a44117e)を参考に取得を。
+次にSlackのAPPを[これとか](https://www.dkrk-blog.net/slack/slack_api01)を参考に取得してください。
+取得したAPIをkey.py.txtに書き込みkey.py.txtをkey.pyにリネームしてください。
 そして[これとか](https://note.nkmk.me/python-pip-install-requirements/)を参考にpipにモジュールをインストールしてください。
+
 
 ## 対応確認カード
 オンパレード2弾通常排出カード
