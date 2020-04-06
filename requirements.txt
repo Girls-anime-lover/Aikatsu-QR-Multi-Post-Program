@@ -3,7 +3,7 @@ lxml==4.4.2
 opencv-python==4.1.2.30
 path==13.1.0
 pathlib==1.0.1
-Pillow==6.2.1
+Pillow==7.1.1
 pyzbar==0.1.8
 requests==2.22.0
 urllib3==1.25.7
